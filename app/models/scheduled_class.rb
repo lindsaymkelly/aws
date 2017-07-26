@@ -1,0 +1,2 @@
+class ScheduledClass < ApplicationRecord
+end
