@@ -1,0 +1,13 @@
+<h2> Add New Staff Member: </h2>
+<%= form_for @staff_member, url: {action: "create"} do |f| %>
+  <%=f.label 'Name:' %>
+  <%=f.text_field :name %>
+  <br>
+  <%=f.label 'Bio:' %>
+  <%=f.text_area :bio %>
+  <br>
+  <%=f.label 'Add Image:' %>
+  <%=f.file_field :image %>
+  <br>
+  <%=f.submit "Add Staff Member" %>
+<% end %>

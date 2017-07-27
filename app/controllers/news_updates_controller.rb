@@ -1,4 +1,5 @@
 class NewsUpdatesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
   end
@@ -9,7 +10,7 @@ class NewsUpdatesController < ApplicationController
   def update
   end
 
-  def new
+  def destroy
   end
 
 end

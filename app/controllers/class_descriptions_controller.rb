@@ -1,4 +1,5 @@
 class ClassDescriptionsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
   end
@@ -9,7 +10,7 @@ class ClassDescriptionsController < ApplicationController
   def update
   end
 
-  def new
+  def destroy
   end
 
 end
