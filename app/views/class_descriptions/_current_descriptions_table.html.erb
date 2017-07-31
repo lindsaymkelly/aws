@@ -1,0 +1,11 @@
+<table> 
+  <tr>
+    <th> Classification </th>
+    <th> Class Title </th>
+    <th> Description </th>
+    <th> Fees </th>
+    <th> Edit Class Description </th>
+    <th> Delete Class Description </th>
+  </tr>
+  <%= render partial: 'class_description_compact', collection: @class_descriptions, as: :class_description %>
+</table>

@@ -1,1 +1,5 @@
-<h1> Admin news updates index </h1>
+<h1> Update News </h1>
+
+<%= render 'current_news_table' unless @news_updates.empty? %>
+<br>
+<%= link_to "Add News Update", new_news_update_path %>

@@ -1,0 +1,16 @@
+<h2> Edit Class Description: </h2>
+<%= form_for @class_description, url: class_description_path(@class_description), method: 'put' do |f| %>
+  <%=f.label 'Classification:' %>
+  <%=f.text_field :classification %>
+  <br>
+  <%=f.label 'Class Title:' %>
+  <%=f.text_field :title %>
+  <br>
+  <%=f.label 'Description:' %>
+  <%=f.text_area :description %>
+  <br>
+  <%=f.label 'Cost & Fees:' %>
+  <%=f.text_field :fees %>
+  <br>
+  <%=f.submit "Edit Class Description" %>
+<% end %>

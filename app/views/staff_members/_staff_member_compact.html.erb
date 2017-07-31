@@ -3,5 +3,5 @@
   <td><%=staff_member.bio%></td>
   <td><%=staff_member.active%></td>
   <td><%= link_to "Edit", edit_staff_member_path(staff_member) %></td>
-  <td><%= link_to "Delete", staff_member, method: :delete %></td>
+  <td><%= link_to "Delete", staff_member, method: :delete, data: {confirm: "Are you sure you want to delete this staff member?"} %></td>
 </tr>

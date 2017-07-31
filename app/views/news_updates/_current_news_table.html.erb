@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th> Title </th>
+    <th> Description </th>
+    <th> Date </th>
+    <th> Current News </th>
+    <th> Edit News Update </th>
+    <th> Delete News Update </th>
+  </tr>
+  <%= render partial: 'news_update_compact', collection: @news_updates, as: :news_update %>
+  
+</table>

@@ -1,0 +1,16 @@
+<h2> Add News Update: </h2>
+<%= form_for @news_update, url: {action: "create"} do |f| %>
+  <%=f.label 'Title:' %>
+  <%=f.text_field :title %>
+  <br>
+  <%=f.label 'Description:' %>
+  <%=f.text_area :description %>
+  <br>
+  <%=f.label 'Date (if applicable):' %>
+  <%=f.date_field :date %>
+  <br>
+  <%=f.label 'Add Image:' %>
+  <%=f.file_field :image %>
+  <br>
+  <%=f.submit "Add News Update" %>
+<% end %>

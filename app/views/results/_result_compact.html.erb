@@ -3,5 +3,5 @@
   <td><%=result.level%></td>
   <td><%=result.description%></td>
   <td><%= link_to "Edit", edit_result_path(result) %></td>
-  <td><%= link_to "Delete", result, method: :delete %></td>
+  <td><%= link_to "Delete", result, method: :delete, data: {confirm: "Are you sure you want to delete this result?"} %></td>
 </tr>

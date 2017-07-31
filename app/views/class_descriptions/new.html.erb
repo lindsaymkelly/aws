@@ -1,0 +1,16 @@
+<h2> Add New Class Description: </h2>
+<%= form_for @class_description, url: {action: "create"} do |f| %>
+  <%=f.label 'Classification:' %>
+  <%=f.text_field :classification %>
+  <br>
+  <%=f.label 'Class Title:' %>
+  <%=f.text_field :title %>
+  <br>
+  <%=f.label 'Description:' %>
+  <%=f.text_area :description %>
+  <br>
+  <%=f.label 'Cost & Fees:' %>
+  <%=f.text_field :fees %>
+  <br>
+  <%=f.submit "Add New Class Description" %>
+<% end %>
