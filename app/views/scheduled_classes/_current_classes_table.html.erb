@@ -1,14 +1,16 @@
-<table>
-  <tr>
-    <th> Class Name </th>
-    <th> Day </th>
-    <th> Time </th>
-    <th> Description </th>
-    <th> Instructor </th>
-    <th> Active Class </th>
-    <th> Edit Class </th>
-    <th> Delete Class </th>
-  </tr>
-  <%= render partial: 'scheduled_class_compact', collection: @scheduled_classes, as: :scheduled_class %>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th> Class Name </th>
+      <th> Day </th>
+      <th> Time </th>
+      <th> Description </th>
+      <th> Instructor </th>
+      <th> Active Class </th>
+      <th> Edit Class </th>
+      <th> Delete Class </th>
+    </tr>
+    <%= render partial: 'scheduled_class_compact', collection: @scheduled_classes, as: :scheduled_class %>
 
-</table>
+  </table>
+</div>

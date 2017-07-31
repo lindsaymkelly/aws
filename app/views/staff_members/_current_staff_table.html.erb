@@ -1,12 +1,14 @@
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Bio </th>
-    <th> Current Employee </th>
-    <th> Edit Employee</th>
-    <th> Delete Employee</th>
-  </tr>
-  <%= render partial: 'staff_member_compact', collection: @staff_members, as: :staff_member %>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th> Name </th>
+      <th> Bio </th>
+      <th> Current Employee </th>
+      <th> Edit Employee</th>
+      <th> Delete Employee</th>
+    </tr>
+    <%= render partial: 'staff_member_compact', collection: @staff_members, as: :staff_member %>
 
-</table>
+  </table>
+</div>
 
