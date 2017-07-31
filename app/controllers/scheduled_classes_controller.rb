@@ -4,7 +4,13 @@ class ScheduledClassesController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   def create
+  end
+
+  def edit
   end
 
   def update
@@ -12,5 +18,9 @@ class ScheduledClassesController < ApplicationController
 
   def destroy
   end
+
+  private
+    def scheduled_class_params
+    end
 
 end

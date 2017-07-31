@@ -1,6 +1,7 @@
 <tr>
   <td><%=staff_member.name%></td>
   <td><%=staff_member.bio%></td>
-  <td><%=staff_member.image.thumbnail%></td>
   <td><%=staff_member.active?%></td>
+  <td><%= link_to "Edit", edit_staff_member_path(staff_member) %></td>
+  <td><%= link_to "Delete", staff_member, method: :delete %>
 </tr>

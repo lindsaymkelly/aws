@@ -2,10 +2,11 @@
   <tr>
     <th> Name </th>
     <th> Bio </th>
-    <th> Image </th>
     <th> Current Employee </th>
+    <th> Edit Employee</th>
+    <th> Delete Employee</th>
   </tr>
-  <%= render 'staff_member_compact', collection: @staff_members, as: :staff_member %>
+  <%= render partial: 'staff_member_compact', collection: @staff_members, as: :staff_member %>
 
 </table>
 

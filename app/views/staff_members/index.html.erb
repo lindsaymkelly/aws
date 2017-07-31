@@ -1,10 +1,6 @@
 <h1>Update Staff Page</h1>
 
-<table>
-<tr><td><div contenteditable>I'm editable</div></td>
-<td><div contenteditable>I'm also editable</div></td></tr>
-<tr><td>I'm not editable</td></tr>
-</table>
-
 <%= render 'current_staff_table' unless @staff_members.empty? %>
-<%= render 'form' %>
+<br>
+<%= link_to "Add New Staff Member", new_staff_member_path %>
+
