@@ -1,0 +1,22 @@
+<h2> Edit Class: </h2>
+<%= form_for @scheduled_class, url: scheduled_class_path(@scheduled_class), method: 'put' do |f| %>
+  <%=f.label 'Day:' %>
+  <%=f.select(:day, options_for_select(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]))%>
+  <br>
+  <%=f.label 'Time:' %>
+  <%=f.time_field :time %>
+  <br>
+  <%=f.label 'Name of Class:' %>
+  <%=f.text_field :name %>
+  <br>
+  <%=f.label 'Class Description:' %>
+  <%=f.text_area :about %>
+  <br>
+  <%=f.label 'Instructor:' %>
+  <%=f.text_field :instructor %>
+  <br>
+  <%=f.label 'Active Class?' %>
+  <%=f.check_box(:active) %>
+  <br>
+  <%=f.submit "Edit Class" %>
+<% end %>

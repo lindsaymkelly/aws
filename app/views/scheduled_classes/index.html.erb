@@ -1,1 +1,5 @@
-<h1> Admin scheduled classes index </h1>
+<h1> Update Class Schedule </h1>
+
+<%= render 'current_classes_table' unless @scheduled_classes.empty? %>
+<br>
+<%= link_to "Add New Class", new_scheduled_class_path %>

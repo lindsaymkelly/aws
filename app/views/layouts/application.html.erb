@@ -12,11 +12,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if @errors%>
-      <ul>
-      <%= @errors.each do |e| %>
-        <li><%= e %></li>
-      </ul>
-      <% end %>
+      <div>
+        <ul>
+        <% @errors.each do |e| %>
+          <li><%= e %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
     <%= yield %>
   </body>

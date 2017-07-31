@@ -1,0 +1,16 @@
+<h2> Add New Result: </h2>
+<%= form_for @result, url: {action: "create"} do |f| %>
+  <%=f.label 'Year:' %>
+  <%=f.select :year, (Time.current.year - 10)..(Time.current.year + 1) %>
+  <br>
+  <%=f.label 'Level:' %>
+  <%=f.text_field :level %>
+  <br>
+  <%=f.label 'Description:' %>
+  <%=f.text_area :description %>
+  <br> 
+  <%=f.label 'Add Image:' %>
+  <%=f.file_field :image %>
+  <br>
+  <%=f.submit "Add New Result" %>
+<% end %>

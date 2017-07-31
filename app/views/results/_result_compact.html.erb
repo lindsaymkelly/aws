@@ -1,0 +1,7 @@
+<tr>
+  <td><%=result.year.strftime("%Y")%></td>
+  <td><%=result.level%></td>
+  <td><%=result.description%></td>
+  <td><%= link_to "Edit", edit_result_path(result) %></td>
+  <td><%= link_to "Delete", result, method: :delete %></td>
+</tr>

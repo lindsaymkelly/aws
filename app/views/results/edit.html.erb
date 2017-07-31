@@ -1,0 +1,18 @@
+<h2> Edit Result: </h2>
+<%= form_for @result, url: result_path(@result), method: 'put' do |f| %>
+  <%=f.label 'Year:' %>
+  <%=f.select :year, (Time.current.year - 10)..(Time.current.year + 1) %>
+  <br>
+  <%=f.label 'Level:' %>
+  <%=f.text_field :level %>
+  <br>
+  <%=f.label 'Description:' %>
+  <%=f.text_area :description %>
+  <br> 
+  <% if @result.image.exists? %>
+    <%= image_tag @result.image.url(:thumb) %>
+  <% end %>
+  <%=f.file_field :image %>
+  <br>
+  <%=f.submit "Edit Result" %>
+<% end %>

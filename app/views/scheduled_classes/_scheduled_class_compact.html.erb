@@ -1,0 +1,10 @@
+<tr>
+  <td><%=scheduled_class.name%></td>
+  <td><%=scheduled_class.day%></td>
+  <td><%=scheduled_class.time.strftime("%I:%M:%S %p")%></td>
+  <td><%=scheduled_class.about%></td>
+  <td><%=scheduled_class.instructor%></td>
+  <td><%=scheduled_class.active%></td>
+  <td><%= link_to "Edit", edit_scheduled_class_path(scheduled_class) %></td>
+  <td><%= link_to "Delete", scheduled_class, method: :delete %></td>
+</tr>
