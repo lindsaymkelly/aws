@@ -6,7 +6,7 @@
 #  title              :string           not null
 #  description        :text             not null
 #  date               :date
-#  active?            :boolean          default(TRUE), not null
+#  active             :boolean          default(TRUE), not null
 #  image_file_name    :string
 #  image_content_type :string
 #  image_file_size    :integer
@@ -16,9 +16,9 @@
 #
 
 class NewsUpdate < ApplicationRecord
-  validates_presence_of :title, :description, :active?
+  validates_presence_of :title, :description
   has_attached_file :image, styles: {}, default_url: ""
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  scope :active, -> { where(active?: true) }
+  scope :active_news, -> { where(active: true) }
 end

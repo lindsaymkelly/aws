@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  day        :string           not null
 #  time       :time             not null
-#  active?    :boolean          default(TRUE), not null
+#  active     :boolean          default(TRUE), not null
 #  name       :string           not null
 #  about      :text             not null
 #  instructor :string           not null
@@ -14,7 +14,7 @@
 #
 
 class ScheduledClass < ApplicationRecord
-  validates_presence_of :day, :time, :active?, :name, :about, :instructor
+  validates_presence_of :day, :time, :name, :about, :instructor
 
-  scope :active, -> { where(active?: true) }
+  scope :active_classes, -> { where(active: true) }
 end

@@ -11,6 +11,7 @@ class StaffMembersController < ApplicationController
   end
 
   def create
+    @staff_member = StaffMember.new(staff_member_params)
     # debugger
     if @staff_member.save
       redirect_to admin_staff_path
@@ -34,7 +35,6 @@ class StaffMembersController < ApplicationController
   end
 
   def destroy
-    @staff_member = StaffMember.find(params[:id])
     @staff_member.destroy
 
     redirect_to admin_staff_path
@@ -42,7 +42,7 @@ class StaffMembersController < ApplicationController
 
   private
     def staff_member_params
-      params.require(:staff_member).permit(:name, :bio, :image, :active?)
+      params.require(:staff_member).permit(:name, :bio, :image, :active)
     end
 
     def find_staff_member

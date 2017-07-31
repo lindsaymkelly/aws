@@ -4,7 +4,7 @@ class CreateNewsUpdates < ActiveRecord::Migration[5.0]
       t.string :title, null: false
       t.text :description, null: false
       t.date :date
-      t.boolean :active?, null: false, default: true
+      t.boolean :active, null: false, default: true
       t.attachment :image
 
       t.timestamps(null: false)

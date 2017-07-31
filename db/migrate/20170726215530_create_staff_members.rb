@@ -4,7 +4,7 @@ class CreateStaffMembers < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.text :bio, null: false
       t.attachment :image
-      t.boolean :active?, null: false, default: true
+      t.boolean :active, null: false, default: true
 
       t.timestamps(null: false)
     end
