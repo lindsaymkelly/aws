@@ -1,7 +1,7 @@
 <tr>
   <td><%=news_update.title%></td>
-  <td><%=news_update.description%></td>
-  <td><%=news_update.date ? news_update.date.strftime("%b %d, %Y") : " "%></td>
+  <td><%=truncate(news_update.description, length: 50)%></td>
+  <td><%=news_update.date ? news_update.date.strftime("%b %d, %Y") : "N/A"%></td>
   <% if news_update.active %>
     <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
   <% else %>

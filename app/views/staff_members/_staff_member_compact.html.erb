@@ -1,6 +1,6 @@
 <tr>
   <td><%=staff_member.name%></td>
-  <td><%=staff_member.bio%></td>
+  <td><%=truncate(staff_member.bio, length: 50)%></td>
   <% if staff_member.active %>
     <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
   <% else %>

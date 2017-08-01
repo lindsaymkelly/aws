@@ -1,19 +1,41 @@
-<h2> Add New Class: </h2>
-<%= form_for @scheduled_class, url: {action: "create"} do |f| %>
-  <%=f.label 'Day:' %>
-  <%=f.select(:day, options_for_select(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]))%>
-  <br>
-  <%=f.label 'Time:' %>
-  <%=f.time_field :time %>
-  <br>
-  <%=f.label 'Name of Class:' %>
-  <%=f.text_field :name %>
-  <br>
-  <%=f.label 'Class Description:' %>
-  <%=f.text_area :about %>
-  <br>
-  <%=f.label 'Instructor:' %>
-  <%=f.text_field :instructor %>
-  <br>
-  <%=f.submit "Add Class" %>
-<% end %>
+<div class="container">
+  <div class="col-sm-offset-2 col-sm-10">
+    <h2> Add New Class: </h2>
+  </div>
+  <%= form_for @scheduled_class, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <%=f.label 'Day:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.select(:day, options_for_select(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]), :class =>"form-control")%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Time:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.time_field :time, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Name of Class:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :name, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Class Description:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_area :about, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Instructor:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :instructor, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%=f.submit "Add Class", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
