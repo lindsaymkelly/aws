@@ -1,5 +1,9 @@
-<h1> Update News </h1>
+<div class="container">
+  <h1 class="text-center"> News Updates </h1>
+</div>
 
 <%= render 'current_news_table' unless @news_updates.empty? %>
 <br>
-<%= link_to "Add News Update", new_news_update_path %>
+<div class="container text-center">
+  <%= link_to "Add News Update", new_news_update_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>
