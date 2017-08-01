@@ -1,16 +1,36 @@
-<h2> Add New Class Description: </h2>
-<%= form_for @class_description, url: {action: "create"} do |f| %>
-  <%=f.label 'Classification:' %>
-  <%=f.text_field :classification %>
-  <br>
-  <%=f.label 'Class Title:' %>
-  <%=f.text_field :title %>
-  <br>
-  <%=f.label 'Description:' %>
-  <%=f.text_area :description %>
-  <br>
-  <%=f.label 'Cost & Fees:' %>
-  <%=f.text_field :fees %>
-  <br>
-  <%=f.submit "Add New Class Description" %>
-<% end %>
+<div class="container">
+  <div class="col-sm-offset-2 col-sm-10">
+    <h2> Add New Class Description: </h2>
+  </div>
+  <%= form_for @class_description, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <%=f.label 'Classification:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :classification, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Class Title:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :title, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Description:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_area :description, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Cost & Fees:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :fees, :class =>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%=f.submit "Add New Class Description", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

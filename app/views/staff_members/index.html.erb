@@ -1,6 +1,10 @@
-<h1>Update Staff Members</h1>
+<div class="container">
+  <h1 class="text-center">Update Staff Members</h1>
+</div>
 
 <%= render 'current_staff_table' unless @staff_members.empty? %>
 <br>
-<%= link_to "Add New Staff Member", new_staff_member_path %>
+<div class="container text-center">
+  <%= link_to "Add New Staff Member", new_staff_member_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>
 

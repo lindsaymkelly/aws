@@ -1,5 +1,9 @@
-<h1> Update Results </h1>
+<div class="container">
+  <h1 class="text-center"> Results Dashboard </h1>
+</div>
 
 <%= render 'current_results_table' unless @results.empty? %>
 <br>
-<%= link_to "Add New Result", new_result_path %>
+<div class="container text-center">
+  <%= link_to "Add New Result", new_result_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>
