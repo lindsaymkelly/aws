@@ -22,23 +22,40 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body id="bootstrap-overrides">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <% if admin_signed_in? %>
       <nav>
         <ul>
-          <li><%= link_to "News Updates", admin_news_path %></li>
-          <li><%= link_to "Class Descriptions", admin_classes_path %></li>
-          <li><%= link_to "Schedule", admin_schedule_path %></li>
-          <li><%= link_to "Results", admin_results_path %></li>
-          <li><%= link_to "Staff", admin_staff_path %></li>
+          <li><%= link_to "Admin News Updates", admin_news_path %></li>
+          <li><%= link_to "Admin Class Descriptions", admin_classes_path %></li>
+          <li><%= link_to "Admin Schedule", admin_schedule_path %></li>
+          <li><%= link_to "Admin Results", admin_results_path %></li>
+          <li><%= link_to "Admin Staff", admin_staff_path %></li>
           <li><%= link_to "Edit Profile", edit_admin_registration_path(current_admin) %></li>
           <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "Are you sure you want to logout?"}%></li>
         </ul>
       </nav>
     <% end %> 
+    <nav id="user-navigation">
+      <ul>
+        <li><%= link_to "Home/Latest News", root_path %></li>
+        <li class="classes-dropdown">
+          <button class="classes-dropbtn">Classes</button>
+          <div class="classes-dropdown-content">
+            <%= link_to "Descriptions", classes_path %>  
+            <%= link_to "Schedule", schedule_path %>    
+          </div>
+        </li>
+        <li><%= link_to "Results", results_path %></li>
+        <li><%= link_to "Staff", staff_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Location", location_path %></li>
+        <li><%= link_to "Log In", login_path %></li>
+      </ul>
+    </nav>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

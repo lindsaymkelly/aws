@@ -3,10 +3,10 @@
   <td><%=truncate(news_update.description, length: 50)%></td>
   <td><%=news_update.date ? news_update.date.strftime("%b %d, %Y") : "N/A"%></td>
   <% if news_update.active %>
-    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+    <td class="text-center"><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
   <% else %>
-    <td><span class="glyphicon glyphicon-remove" style="color:grey"></span></td>
+    <td class="text-center"><span class="glyphicon glyphicon-remove" style="color:grey"></span></td>
   <% end %>
-  <td><%= link_to "Edit", edit_news_update_path(news_update), :class => "btn btn-info btn-sm" %></td>
-  <td><%= link_to "Delete", news_update, method: :delete, data: {confirm: "Are you sure you want to delete this news update?"}, :class => "btn btn-danger btn-sm"%></td>
+  <td class="text-center"><%= link_to "Edit", edit_news_update_path(news_update), :class => "btn btn-info btn-sm" %></td>
+  <td class="text-center"><%= link_to "Delete", news_update, method: :delete, data: {confirm: "Are you sure you want to delete this news update?"}, :class => "btn btn-danger btn-sm"%></td>
 </tr>

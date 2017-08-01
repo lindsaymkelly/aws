@@ -2,6 +2,6 @@
   <td><%=result.year.strftime("%Y")%></td>
   <td><%=result.level%></td>
   <td><%=truncate(result.description, length: 50)%></td>
-  <td><%= link_to "Edit", edit_result_path(result), :class => "btn btn-info btn-sm" %></td>
-  <td><%= link_to "Delete", result, method: :delete, data: {confirm: "Are you sure you want to delete this result?"}, :class => "btn btn-danger btn-sm" %></td>
+  <td class="text-center"><%= link_to "Edit", edit_result_path(result), :class => "btn btn-info btn-sm" %></td>
+  <td class="text-center"><%= link_to "Delete", result, method: :delete, data: {confirm: "Are you sure you want to delete this result?"}, :class => "btn btn-danger btn-sm" %></td>
 </tr>

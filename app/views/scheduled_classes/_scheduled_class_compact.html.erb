@@ -5,10 +5,10 @@
   <td><%=truncate(scheduled_class.about, length:50)%></td>
   <td><%=scheduled_class.instructor%></td>
   <% if scheduled_class.active %>
-    <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
+    <td class="text-center"><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
   <% else %>
-    <td><span class="glyphicon glyphicon-remove" style="color:grey"></span></td>
+    <td class="text-center"><span class="glyphicon glyphicon-remove" style="color:grey"></span></td>
   <% end %>
-  <td><%= link_to "Edit", edit_scheduled_class_path(scheduled_class), :class => "btn btn-info btn-sm" %></td>
-  <td><%= link_to "Delete", scheduled_class, method: :delete, data: {confirm: "Are you sure you want to delete this scheduled class?"}, :class => "btn btn-danger btn-sm" %></td>
+  <td class="text-center"><%= link_to "Edit", edit_scheduled_class_path(scheduled_class), :class => "btn btn-info btn-sm" %></td>
+  <td class="text-center"><%= link_to "Delete", scheduled_class, method: :delete, data: {confirm: "Are you sure you want to delete this scheduled class?"}, :class => "btn btn-danger btn-sm" %></td>
 </tr>
