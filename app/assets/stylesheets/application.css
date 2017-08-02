@@ -13,44 +13,65 @@
  *= require_tree .
  *= require_self
  */
-#user-navigation ul {
-  border: 1px solid #ccc;
-  border-width: 1px 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.nav-tab {
+  height: 35px;
+}
+
+/*Not currently working*/
+.nav-tab a{
+  height: 16px; 
+  color: #FFFFFF; 
+  font-family: Gotham;  
+  font-size: 15.13px; 
+  font-weight: 300; 
+  line-height: 17px;  
   text-align: center;
 }
 
-#user-navigation li{
-  display: inline;
+#classes-nav-tab {
+  background: linear-gradient(225deg, #BFDFF5 0%, #00AAA6 100%);
 }
 
-#user-navigation a{
-  display: inline-block;
-  padding: 10px;
+#results-nav-tab {
+  background-color: #5EC08D;
 }
 
-#user-navigation .classes-dropbtn{
-
+#staff-nav-tab {
+  background: linear-gradient(225deg, #59C4D2 0%, #BEC0C2 100%);
 }
 
-#user-navigation .classes-dropdown{
-  position: relative;
-  display: inline-block;
+#about-nav-tab {
+  background: linear-gradient(90deg, #FFED04 0%, #F47B20 100%);
 }
 
-#user-navigation .classes-dropdown-content{
-  display: none;
-  position: absolute;
-  z-index: 1;
+#location-nav-tab {
+  background: linear-gradient(45deg, #0081C6 0%, #BEDEF5 100%);
 }
 
-#user-navigation .classes-dropdown-content a{
-  text-decoration: none;
-  display: block;
+#login-nav-tab {
+  background: linear-gradient(135deg, #59C8D6 0%, #DEEAED 100%);
 }
 
-#user-navigation .classes-dropdown:hover .classes-dropdown-content{
-  display: block;
+#PSLE h2 {
+  color:#0081C6;
+}
+
+#PSLE h4 {
+  color:#0081C6;
+}
+
+#IPO h2 {
+  color:#5EC08D;
+}
+
+#IPO h4 {
+  color:#5EC08D;
+}
+
+#Alev h2 {
+  color:#F47B20;
+}
+
+#Alev h4 {
+  color:#F47B20;
 }

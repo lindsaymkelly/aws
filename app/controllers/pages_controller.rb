@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def classes
+    @descriptions = ClassDescription.all.group_by(&:classification)
   end
 
   def schedule

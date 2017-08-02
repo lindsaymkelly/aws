@@ -1,1 +1,26 @@
-<h1> This is the class description page </h1>
+<div class="container">
+  <h1 class="text-center" style="color:#0081C6;"> Descriptions </h1>
+</div>
+<% @descriptions.each do |classification, classes| %>
+  <div class="container" id="<%=classification.gsub(/\s+/, "").gsub(/[!@%&"]/,'')%>">
+    <div class="col-md-3">
+      <h2 style="text-align: right;"><%= classification %></h2>
+    </div>
+    <div class="col-md-9">
+      <% if classes.length > 1 %>
+        <% classes.group_by(&:title).each do |title, details| %>
+          <h4><%= title %></h4>
+          <% details.each do |detail| %>
+            <p><%= detail.description %></p>
+            <p> Fees: <%= detail.fees %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <h4><%= classes.first.title %></h4>
+        <p><%= classes.first.description %></p>
+        <p> Fees: <%=classes.first.fees %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
