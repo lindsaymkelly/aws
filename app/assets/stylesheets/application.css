@@ -11,14 +11,30 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+
  *= require_self
  */
+ @font-face {
+  font-family: 'Gotham';
+  src: url('GOTHAM-LIGHT.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ #bootstrap-overrides {
+  font-family: 'Gotham';
+ }
+
+ #custom-nav a:visited {
+  color: #FFFFFF;
+ }
+
 .nav-tab {
   height: 35px;
 }
 
 /*Not currently working*/
-.nav-tab a{
+/*.nav-tab a{
   height: 16px; 
   color: #FFFFFF; 
   font-family: Gotham;  
@@ -26,7 +42,7 @@
   font-weight: 300; 
   line-height: 17px;  
   text-align: center;
-}
+}*/
 
 #classes-nav-tab {
   background: linear-gradient(225deg, #BFDFF5 0%, #00AAA6 100%);
@@ -74,4 +90,58 @@
 
 #Alev h4 {
   color:#F47B20;
+}
+
+#staff-image-div {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  max-height: 480px;
+}
+
+#staff-image-div img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#location-map {
+  display: flex;
+  overflow: hidden;
+}
+
+#location-map img {
+  max-height: 500px;
+}
+
+#news-image {
+  display: flex;
+  overflow: hidden;
+}
+
+#news-image img {
+  max-height: 170px;
+}
+
+#about-image {
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 5%;
+}
+
+#about-image img {
+  max-height: 680px;
+  min-width: 100%;
+  position: relative;
+  z-index: -1
+}
+
+#about-text {
+  padding-top: 18%;
+  position: absolute;
+  z-index: 1;
+  color: #FFFFFF;
+  padding-left: 5%;
+  padding-right: 5%;
 }

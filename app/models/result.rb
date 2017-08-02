@@ -16,6 +16,6 @@
 
 class Result < ApplicationRecord
   validates_presence_of :year, :level, :description
-  has_attached_file :image, styles: {}, default_url: ""
+  has_attached_file :image, styles: { medium: "160x100>", thumb: "100x100>" }, default_url: ""
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

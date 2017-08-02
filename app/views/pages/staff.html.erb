@@ -1,1 +1,21 @@
-<h1> This is the staff page </h1>
+<div class="container text-center">
+  <h1 style="color:#0081C6;"> STAFF </h1>
+</div>
+<div class="container">
+  <div id="staff-image-div" class="container">
+    <%= image_tag 'staff_background' %> 
+  </div>
+  <div style="background: linear-gradient(19.86deg, #0081C6 0%, #BEDEF5 100%);color:#FFFFFF;padding-top:3%;padding-bottom:3%" class="container">
+    <% @staff.each do |teacher| %>
+      <div class="container">
+        <div class="col-md-2">
+          <%= image_tag teacher.image.url(:medium) %>
+        </div>
+        <div class="col-md-10">
+          <h4><%= teacher.name %></h4>
+          <p><%= teacher.bio %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
+    @news = NewsUpdate.active_news
   end
 
   def classes
@@ -7,12 +8,15 @@ class PagesController < ApplicationController
   end
 
   def schedule
+
   end
 
   def results
+    @results = Result.all #should this be filtered at all?
   end
 
   def staff
+    @staff = StaffMember.active_staff
   end
 
   def about
