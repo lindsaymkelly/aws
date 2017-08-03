@@ -26,26 +26,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <div id="custom-nav" style="color: #FFFFFF;font-weight: 300;font-size: 16px;" class="col-md-12 text-center">
-      <div id="classes-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "CLASSES", classes_path %>
-      </div>
-      <div id="results-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "RESULTS", results_path %>
-      </div>
-      <div id="staff-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "STAFF", staff_path %>
-      </div>
-      <div id="about-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "ABOUT", about_path %>
-      </div>
-      <div id="location-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "LOCATION", location_path %>
-      </div>
-      <div id="login-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "LOG IN", login_path %>
-      </div>
-    </div>
+    <% unless params[:controller] == "pages" && params[:action] == "index" %>
+      <% if admin_signed_in? %>
+        <%= render './nav_bars/admin_nav_bar' %>
+      <% else %>
+        <%= render './nav_bars/user_nav_bar' %>
+      <% end %> 
+    <% end %> 
+
+
 
     <% if notice || alert %>
       <p class="notice"><%= notice %></p>
