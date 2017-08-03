@@ -25,4 +25,7 @@ class PagesController < ApplicationController
   def location
   end
 
+  def login
+  end
+
 end

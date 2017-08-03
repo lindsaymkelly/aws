@@ -26,30 +26,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <div id="custom-nav" style="color: #FFFFFF;font-weight: 300;font-size: 16px;" class="container text-center">
+    <div id="custom-nav" style="color: #FFFFFF;font-weight: 300;font-size: 16px;" class="col-md-12 text-center">
       <div id="classes-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "Home/Latest News", root_path %>
+        <%= link_to "CLASSES", classes_path %>
       </div>
       <div id="results-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "Results", results_path %>
+        <%= link_to "RESULTS", results_path %>
       </div>
       <div id="staff-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "Staff", staff_path %>
+        <%= link_to "STAFF", staff_path %>
       </div>
       <div id="about-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "About", about_path %>
+        <%= link_to "ABOUT", about_path %>
       </div>
       <div id="location-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "Location", location_path %>
+        <%= link_to "LOCATION", location_path %>
       </div>
       <div id="login-nav-tab" class="col-md-2 nav-tab">
-        <%= link_to "Log In", login_path %>
+        <%= link_to "LOG IN", login_path %>
       </div>
     </div>
 
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice || alert %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <% if @errors%>
       <div class="alert alert-danger" role="alert">
         <ul class="list-unstyled">

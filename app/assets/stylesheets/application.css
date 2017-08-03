@@ -21,6 +21,19 @@
   font-style: normal;
  }
 
+ @font-face {
+  font-family: 'Gotham';
+  src: url('GOTHAM-BLACK.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+
+ }
+
+ .bold
+ strong {
+  font-weight: 700;
+ }
+
  #bootstrap-overrides {
   font-family: 'Gotham';
  }
@@ -125,23 +138,32 @@
 }
 
 #about-image {
+  background-image: url('/assets/about_background.jpg');
+  background-size: 100%;
   display: flex;
   overflow: hidden;
-  padding-bottom: 5%;
+  height: 580px;
 }
 
-#about-image img {
-  max-height: 680px;
-  min-width: 100%;
-  position: relative;
-  z-index: -1
-}
 
 #about-text {
-  padding-top: 18%;
-  position: absolute;
-  z-index: 1;
+  padding-top: 10%;
+/*  position: absolute;
+  z-index: 1;*/
   color: #FFFFFF;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+#index-image {
+  background-image: url('/assets/homepage.jpg');
+  background-size: 100%;
+  display: flex;
+  overflow: hidden;
+  height: 700px;
+}
+
+#index-text {
+  padding-top: 25%;
+  color: #FFFFFF;
 }
