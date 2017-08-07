@@ -40,7 +40,7 @@ class ScheduledClassesController < ApplicationController
 
   private
     def scheduled_class_params
-      params.require(:scheduled_class).permit(:day, :time, :name, :about, :instructor, :active)
+      params.require(:scheduled_class).permit(:start_date, :end_date, :time, :name, :about, :instructor)
     end
 
     def find_scheduled_class

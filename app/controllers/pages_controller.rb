@@ -8,7 +8,12 @@ class PagesController < ApplicationController
   end
 
   def schedule
-    @classes = ScheduledClass.active_classes.group_by(&:day)
+    # debugger 
+    @classes = ScheduledClass.all 
+    @classes = @classes.by_instructor(params[:instructor]) if params[:instructor].present? && params[:instructor] != "All Instructors"
+    @classes = @classes.by_name(params[:name]) if params[:name].present? && params[:name] != "All Classes"
+    @classes = @classes.active_classes(params[:date]) if params[:date].present?
+    @classes = @classes.group_by(&:day)
 
   end
 

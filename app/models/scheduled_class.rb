@@ -3,9 +3,9 @@
 # Table name: scheduled_classes
 #
 #  id         :integer          not null, primary key
-#  day        :string           not null
+#  start_date :date             not null
+#  end_date   :date             not null
 #  time       :time             not null
-#  active     :boolean          default(TRUE), not null
 #  name       :string           not null
 #  about      :text             not null
 #  instructor :string           not null
@@ -14,7 +14,22 @@
 #
 
 class ScheduledClass < ApplicationRecord
-  validates_presence_of :day, :time, :name, :about, :instructor
+  validates_presence_of :start_date, :end_date, :time, :name, :about, :instructor
 
-  scope :active_classes, -> { where(active: true) }
+  scope :by_instructor, -> (teacher) { where instructor: teacher }
+  scope :by_name, -> (klass) { where name: klass }
+  scope :active_classes, lambda{ |date = Date.current| where("? BETWEEN start_date AND end_date", date)}
+
+  def self.options_for_instructors
+    uniq.pluck(:instructor) << 'All Instructors'
+  end
+
+  def self.options_for_classes
+    uniq.pluck(:name) << 'All Classes'
+  end
+
+  def day
+    self.start_date.strftime("%A ")
+  end
+  
 end

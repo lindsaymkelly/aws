@@ -67,14 +67,14 @@ ActiveRecord::Schema.define(version: 20170727174316) do
   end
 
   create_table "scheduled_classes", force: :cascade do |t|
-    t.string   "day",                       null: false
-    t.time     "time",                      null: false
-    t.boolean  "active",     default: true, null: false
-    t.string   "name",                      null: false
-    t.text     "about",                     null: false
-    t.string   "instructor",                null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.date     "start_date", null: false
+    t.date     "end_date",   null: false
+    t.time     "time",       null: false
+    t.string   "name",       null: false
+    t.text     "about",      null: false
+    t.string   "instructor", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "staff_members", force: :cascade do |t|
