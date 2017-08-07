@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def schedule
+    @classes = ScheduledClass.active_classes.group_by(&:day)
 
   end
 

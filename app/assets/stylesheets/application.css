@@ -280,3 +280,12 @@
   position: absolute;
   bottom: 0;
 }
+
+/*Schedule page styling*/
+
+.schedule-icon img {
+  max-height: 15px;
+  min-height: 3px;
+  max-width: 15px;
+  min-width: 3px;
+}

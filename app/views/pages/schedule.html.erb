@@ -1,1 +1,29 @@
-<h1> This is where the schedule will be displayed </h1>
+<div class="container-fluid text-center" >
+  <h1 style="font-size: 3em; color: #0081C6;"> CLASS SCHEDULE </h1>
+</div>
+<div class="container-fluid schedule-filters">
+  <p> Insert filters here </p>
+</div>
+<% @classes.each do | day, classes | %>
+  <div class="container-fluid class-table">
+    <table class="table">
+      <tr style="color:#06ACA9; font-weight: lighter;">
+        <th><%= day.upcase %></th>
+        <th> CLASS </th>
+        <th> ABOUT </th>
+        <th> INSTRUCTOR </th>
+        <th> SIGN UP </th>
+      </tr>
+      <% classes.each do | klass | %>
+        <tr>
+          <td><%=klass.time.strftime("%I:%M:%S %p") %></td>
+          <td><%=klass.name %></td>
+          <td class="schedule-icon"><%= image_tag 'info' %></td>
+          <td><%=klass.instructor %></td>
+          <td class="schedule-icon"><%= image_tag 'person' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
