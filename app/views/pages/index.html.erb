@@ -1,40 +1,35 @@
-<div id="index-image" class="container-fluid">
-  <div id="index-logo">
-    <%=image_tag 'aws_logo_white' %>
+<body class="index-body">
+  <div id="index-image">
+    <div id="index-logo">
+      <%=image_tag 'aws_logo_white' %>
+    </div>
+    <div id="index-text" class="text-center">
+      <h2 style="font-size: 3.2em;"> Education today in order to focus on tomorrow. </h2>
+      <p style="font-size: 2em;"> Local education on a global scale. </p>
+    </div>
   </div>
-  <div id="index-text" class="text-center">
-    <h2 style="font-size: 3.2em;"> Education today in order to focus on tomorrow. </h2>
-    <p style="font-size: 2em;"> Local education on a global scale. </p>
-  </div>
-  <div id="index-nav-bar">
-    <% if admin_signed_in? %>
-      <%= render './nav_bars/admin_nav_bar' %>
-    <% else %>
-      <%= render './nav_bars/user_nav_bar' %>
+  <div id="latest-news-div" class="container-fluid">
+    <div style="padding-bottom:3%;" class="container text-center">
+      <h1 style="font-family: 'Gotham-medium';"> LATEST NEWS </h1>
+    </div>
+    <% if @news %>
+      <div class="container">
+        <% @news.each do |story| %>
+          <div class="container news-container">
+            <div id="news-image" class="col-md-2">
+              <%= image_tag story.image.url(:medium) %>
+            </div>
+            <div class="col-md-10">
+              <% if story.date %>  
+                <h5 style="font-size: 1.5em;"><%=story.title.upcase%>: <%=story.date.strftime('%e %B').upcase%></h5>
+              <% else %>
+                <h5 style="font-size: 1.5em;"><%=story.title.upcase %></h5>
+              <% end %> 
+              <p style="font-size: 1.2em;"><%=story.description%></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
-</div>
-<div style="background-image: linear-gradient(-30deg, #57C9E8 50%, #96CEDD 75%, #D0D2D3 100%);color:#FFFFFF;" class="container-fluid">
-  <div style="padding-bottom:3%;" class="container text-center">
-    <h1> LATEST NEWS </h1>
-  </div>
-  <% if @news %>
-    <div class="container">
-      <% @news.each do |story| %>
-        <div style="padding-bottom:3%;" class="container">
-          <div id="news-image" class="col-md-2">
-            <%= image_tag story.image.url(:medium) %>
-          </div>
-          <div class="col-md-10">
-            <% if story.date %>  
-              <h5 style="font-size: 18.5px;"><%=story.title.upcase%>: <%=story.date.strftime('%e %B').upcase%></h5>
-            <% else %>
-              <h5 style="font-size: 18.5px;"><%=story.title.upcase %></h5>
-            <% end %> 
-            <p style="font-size: 16px;"><%=story.description%></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+</body>

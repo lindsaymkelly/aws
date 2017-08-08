@@ -28,8 +28,12 @@ class ScheduledClass < ApplicationRecord
     uniq.pluck(:name) << 'All Classes'
   end
 
+  def self.days_of_week
+    {"Monday"=>1, "Tuesday"=>2, "Wednesday"=>3, "Thursday"=>4, "Friday"=>5, "Saturday"=>6, "Sunday"=>7}
+  end
+
   def day
-    self.start_date.strftime("%A ")
+    self.start_date.strftime("%A")
   end
   
 end

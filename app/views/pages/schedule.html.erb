@@ -1,34 +1,40 @@
 <div class="container-fluid text-center" >
-  <h1 style="font-size: 3em; color: #0081C6; font-family: 'Gotham-main';"> CLASS SCHEDULE</h1>
+  <h1 style="font-size: 3em; color: #0081C6; font-family: 'Gotham-medium';"> CLASS SCHEDULE</h1>
 </div>
-<div class="container-fluid schedule-filters">
+<div class="schedule-filters">
   <%= form_tag schedule_path, :method => 'get' do %>
-    <div class="col-md-4">
-      <%= select_tag :name, options_for_select(ScheduledClass.options_for_classes, 'All Classes')%>
+    <div class="dropdown-filters">
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :name, options_for_select(ScheduledClass.options_for_classes, 'All Classes')%>
+      </div>
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :instructor, options_for_select(ScheduledClass.options_for_instructors, 'All Instructors')%>
+      </div>
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :location, options_for_select(['All Locations'])%>
+      </div>
     </div>
-    <div class="col-md-4">
-      <%= select_tag :instructor, options_for_select(ScheduledClass.options_for_instructors, 'All Instructors')%>
-    </div>
-    <div class="col-md-4">
-      <%= select_tag :location, options_for_select(['All Locations'])%>
-    </div>
-    <div class="col-md-1">
-      <%= link_to "<<PREVIOUS", schedule_path(date: Date.current-1.week), :class => "schedule-links" %>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-      <%= link_to "CURRENT WEEK", schedule_path(date: Date.current), :class => "schedule-links" %>
-    </div>
-    <div class="col-md-offset-1 col-md-1">
-      <%= link_to "NEXT>>", schedule_path(date: Date.current+1.week), :class => "schedule-links" %>
-    </div>
-    <div class="col-md-offset-1 col-md-4">
-      <%= date_field_tag :date%>
-      <%= submit_tag "Filter", :name => nil, :class => "btn btn-small btn-primary filter-button" %>
+    <div class="filters-row-2">
+      <div class="sched-link-div">
+        <div class="filter-link-div">
+          <%= link_to "<<PREVIOUS", schedule_path(date: Date.current-1.week), :class => "schedule-links" %>
+        </div>
+        <div class="filter-link-div">
+          <%= link_to "CURRENT WEEK", schedule_path(date: Date.current), :class => "schedule-links" %>
+        </div>
+        <div class="filter-link-div">
+          <%= link_to "NEXT>>", schedule_path(date: Date.current+1.week), :class => "schedule-links" %>
+        </div>
+      </div>
+      <div class="calendar-div">
+        <%= date_field_tag :date%>
+        <%= submit_tag "Filter", :name => nil, :class => "btn btn-small btn-primary filter-button" %>
+      </div>
     </div>
   <% end %>
 </div>
 
-<% if @classes %>
+<% if !@classes.empty? %>
   <div class="container-fluid schedule-div" >
     <table class="table">
       <% @classes.each do | day, classes | %>
@@ -39,16 +45,38 @@
           <th> INSTRUCTOR </th>
           <th> SIGN UP </th>
         </tr>
-        <% classes.each do | klass | %>
+        <% classes.sort_by{ |c| c.time }.each do | klass | %>
           <tr style="font-size: 1.3em; font-family: 'Gotham-thin';">
             <td><%=klass.time.strftime("%I:%M %p") %></td>
             <td><%=klass.name %></td>
-            <td style="padding-left: 2.2%;" class="info-icon"><%= image_tag 'info' %></td>
+            <td style="padding-left: 2.2%;" class="info-icon">
+              <button id="info-button" data-toggle="modal" data-target="#myModal"></button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 style="font-size: 1.7em; color: #F47B20;" class="modal-title" id="exampleModalLabel">About Class</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p><%=klass.about %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </td>
             <td><%=klass.instructor %></td>
             <td style="padding-left: 3%;" class="person-icon"><%= image_tag 'person' %></td>
           </tr>
         <% end %>
       <% end %>
     </table>
+  </div>
+<% else %>
+  <div style="font-size: 1.5em; padding-top: 10%; color: #F47B20;" class="container-fluid text-center">
+    <p> No classes match your search.  Please try again with different filters. </p>
   </div>
 <% end %>
