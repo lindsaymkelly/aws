@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/location' => 'pages#location'
   get '/login' => 'pages#login'
+  get '/sign_up' => 'pages#sign_up'
 
   get 'admin/news' => 'news_updates#index'
   get 'admin/classes' => 'class_descriptions#index'

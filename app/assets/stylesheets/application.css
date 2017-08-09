@@ -55,7 +55,7 @@
  /*standard user nav bar*/
 
  #custom-nav {
-  height: 10%;
+  height: 45px;
   min-width: 100%;
   display: flex;
   flex-direction: row;
@@ -67,7 +67,7 @@
  }
 
 .nav-tab {
-  height: 100%;
+  height: 45px;
   width: 16%;
   display: flex;
   flex-direction: column;
@@ -84,41 +84,45 @@
 }
 
 #home-nav-tab {
-  height: 100%;
+  height: 45px;
   width: 4%;
-  display: flex;
-  flex-direction: column;
   background-color: #FFFFFF;
 }
 
 #home-nav-tab img{
-  max-height: 100%;
-  max-width: 100%;
   overflow: hidden;
+  width: 90%;
+  height: 44px;
 }
 
 #classes-nav-tab {
   background-image: linear-gradient(-17deg, #AAAD00 0%, #A4AD06 12%, #93AD17 28%, #77AC32 47%, #50AB58 67%, #1EAB89 88%, #00AAA6 100%);
+  background-size: cover;
 }
 
 #results-nav-tab {
   background-image: linear-gradient(-11deg, #EF3FA9 12%, #EE46AB 20%, #EA58B0 33%, #E376B9 47%, #DBA0C5 63%, #D0D2D3 80%);
+  background-size: cover;
 }
 
 #staff-nav-tab {
   background-image: linear-gradient(-26deg, #FF9D6C 0%, #FE9A66 20%, #FC9355 47%, #F88639 78%, #F47B20 100%);
+  background-size: cover;
 }
 
 #about-nav-tab {
   background-image: linear-gradient(-12deg, #F9EC31 0%, #F6EA34 27%, #EDE23D 46%, #DED54C 62%, #C8C261 76%, #ADAB7D 90%, #929497 100%);
+  background-size: cover;
 }
 
 #location-nav-tab {
   background-image: linear-gradient(-30deg, #57C9E8 50%, #96CEDD 75%, #D0D2D3 100%);
+  background-size: cover;
 }
 
 #login-nav-tab {
   background-image: linear-gradient(-17deg, #F64B7F 4%, #F65C76 9%, #F67F64 21%, #F79C56 33%, #F7B24A 47%, #F7C242 61%, #F7CB3D 77%, #F7CE3C 100%);
+  background-size: cover;
 }
 
 /*Classes dropdown menu*/
@@ -156,7 +160,7 @@
 
 /*Admin nav bar*/
 #admin-nav {
-  height: 10%;
+  height: 45px;
   min-width: 100%;
   display: flex;
   flex-direction: row;
@@ -173,6 +177,7 @@
 
  #admin-nav-tab {
   background: linear-gradient(45deg, #0081C6 0%, #BEDEF5 100%);
+  background-size: cover;
  }
 
  /*Admin dropdown menu */
@@ -398,58 +403,29 @@
 #index-image {
   background-image: url('/assets/homepage.jpg');
   height: 700px;
-  /*height: 100%;*/
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*background-size: 100%;*/
   background-repeat: no-repeat;
 }
 
 #latest-news-div {
   background-image: linear-gradient(-30deg, #57C9E8 50%, #96CEDD 75%, #D0D2D3 100%);
   color: #FFFFFF;
-  height: 700px;
-  /*height: 100%;*/
+  min-height: 700px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*background-size: 100%;*/
   background-repeat: no-repeat;
 }
-
-@media only screen and (max-width: 1200px) {
-  #index-image {
-    height: 100%;
-    width: 100%;
-    background-attachment: scroll;
-  }
-
-  #index-text h2 {
-    font-size: 2em;
-  }
-
-  #index-text p {
-    font-size: 1.5em;
-  }
-
-  #index-logo img {
-    height: 40% !important;
-  }
-}
-
-/*@media only screen and (max-width: 1024px) {
-  #index-image {
-    background-attachment: scroll;
-  }
-}*/
 
 #index-text {
   padding-top: 22%;
   color: #FFFFFF;
   width: 100%;
+  position: static;
 }
 
 #index-logo {
@@ -465,8 +441,46 @@
 }
 
 #index-nav-bar {
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+  position: sticky;
+  padding-top: 8%;
+  top: 10px;
+  z-index: 100;
+}
+
+@media only screen and (min-width: 1600px) {
+  #index-nav-bar {
+    padding-top: 0%;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  #index-text {
+    padding-top: 32%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #index-image {
+    max-height: 600px;
+    width: 100%;
+    background-attachment: scroll;
+  }
+
+  #index-nav-bar {
+    display: none;
+  }
+
+  #index-text {
+    font-size: .7em;
+    padding-top: 15%;
+  }
+
+  #index-logo {
+    height: 30% !important;
+    position: static;
+  }
 }
 
 /*Schedule page styling*/
@@ -489,7 +503,7 @@
 
 .dropdown-filters {
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-between;
 }
 
@@ -519,8 +533,6 @@
 .sched-link-div .filter-link-div {
   width: 30%;
 }
-
-
 
 .schedule-filters select { 
   width: 100%;
@@ -560,3 +572,39 @@
   max-width: 20px;
   min-width: 20px;
 }
+
+@media only screen and (max-width: 767px) {
+  .dropdown-filters {
+    flex-direction: column;
+  }
+
+  .dropdown-filters .sched-filter-drpdwn {
+    width: 100%;
+  }
+
+  .filters-row-2 {
+    flex-direction: column;
+  }
+
+  .filters-row-2 .calendar-div {
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 10%
+  }
+
+  .sched-link-div .filter-link-div {
+    display: none;
+  }
+
+  .schedule-div {
+    width: 90%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .schedule-table {
+    font-size: .6em;
+    width: 100%;
+  }
+}
+

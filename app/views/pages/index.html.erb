@@ -7,6 +7,13 @@
       <h2 style="font-size: 3.2em;"> Education today in order to focus on tomorrow. </h2>
       <p style="font-size: 2em;"> Local education on a global scale. </p>
     </div>
+    <div id="index-nav-bar">
+      <% if admin_signed_in? %>
+        <%= render './nav_bars/admin_nav_bar' %>
+      <% else %>
+        <%= render './nav_bars/user_nav_bar' %>
+      <% end %>
+    </div>
   </div>
   <div id="latest-news-div" class="container-fluid">
     <div style="padding-bottom:3%;" class="container text-center">
