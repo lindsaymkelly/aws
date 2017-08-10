@@ -1,0 +1,31 @@
+<body style="background-image: linear-gradient(-17deg, #AAAD00 0%, #A4AD06 12%, #93AD17 28%, #77AC32 47%, #50AB58 67%, #1EAB89 88%, #00AAA6 100%); height:100%;margin:0;background-repeat: no-repeat;background-attachment: fixed;color:#FFFFFF;">
+  <div style="padding-top: 2%;" class="container">
+    <h1 class="text-center" style="padding-bottom: 2%; font-family: 'Gotham-medium';"> CLASS DESCRIPTIONS </h1>
+  </div>
+  <% if @descriptions %>
+    <% @descriptions.each do |classification, classes| %>
+      <div class="container">
+        <div class="col-md-3">
+          <h2 style="text-align: right; font-family: 'Gotham-black';"><%= classification %></h2>
+        </div>
+        <div class="col-md-9">
+          <% if classes.length > 1 %>
+            <% classes.group_by(&:title).each do |title, details| %>
+              <h4 style="font-family: 'Gotham-medium';"><%= title %></h4>
+              <% details.each do |detail| %>
+                <p><%= detail.description %></p>
+                <p> Fees: <%= detail.fees %></p>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h4 style="font-family: 'Gotham-medium';"><%= classes.first.title %></h4>
+            <p><%= classes.first.description %></p>
+            <p> Fees: <%=classes.first.fees %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</body>
+
+

@@ -1,0 +1,14 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tr>
+      <th> Name </th>
+      <th> Bio </th>
+      <th class="text-center"> Current Employee </th>
+      <th class="text-center"> Edit Employee</th>
+      <th class="text-center"> Delete Employee</th>
+    </tr>
+    <%= render partial: 'staff_member_compact', collection: @staff_members, as: :staff_member %>
+
+  </table>
+</div>
+

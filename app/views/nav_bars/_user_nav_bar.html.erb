@@ -1,0 +1,27 @@
+<div id="custom-nav" style="color: #FFFFFF;font-weight: 300;font-size: 16px;" class="text-center">
+  <div id="home-nav-tab">
+    <%= link_to(image_tag('aws_logo_color'), root_path) %>
+  </div>
+  <div id="classes-nav-tab" class="nav-tab classes-dropdown">
+    <p class="classes-drpbtn">CLASSES </p>
+    <div class="dropdown-content">
+      <%= link_to "DESCRIPTIONS", classes_path %>
+      <%= link_to "SCHEDULE", schedule_path %>
+    </div>
+  </div>
+  <div id="results-nav-tab" class="nav-tab">
+    <%= link_to "RESULTS", results_path %>
+  </div>
+  <div id="staff-nav-tab" class="nav-tab">
+    <%= link_to "STAFF", staff_path %>
+  </div>
+  <div id="about-nav-tab" class="nav-tab">
+    <%= link_to "ABOUT", about_path %>
+  </div>
+  <div id="location-nav-tab" class="nav-tab">
+    <%= link_to "LOCATION", location_path %>
+  </div>
+  <div id="login-nav-tab" class="nav-tab">
+    <%= link_to "LOG IN", login_path %>
+  </div>
+</div>

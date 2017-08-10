@@ -1,0 +1,42 @@
+<body class="index-body">
+  <div id="index-image">
+    <div id="index-logo">
+      <%=image_tag 'aws_logo_white' %>
+    </div>
+    <div id="index-text" class="text-center">
+      <h2 style="font-size: 3.2em;"> Education today in order to focus on tomorrow. </h2>
+      <p style="font-size: 2em;"> Local education on a global scale. </p>
+    </div>
+    <div id="index-nav-bar">
+      <% if admin_signed_in? %>
+        <%= render './nav_bars/admin_nav_bar' %>
+      <% else %>
+        <%= render './nav_bars/user_nav_bar' %>
+      <% end %>
+    </div>
+  </div>
+  <div id="latest-news-div" class="container-fluid">
+    <div style="padding-bottom:3%;" class="container text-center">
+      <h1 style="font-family: 'Gotham-medium';"> LATEST NEWS </h1>
+    </div>
+    <% if @news %>
+      <div class="container">
+        <% @news.each do |story| %>
+          <div class="container news-container">
+            <div id="news-image" class="col-md-2">
+              <%= image_tag story.image.url(:medium) %>
+            </div>
+            <div class="col-md-10">
+              <% if story.date %>  
+                <h5 style="font-size: 1.5em;"><%=story.title.upcase%>: <%=story.date.strftime('%e %B').upcase%></h5>
+              <% else %>
+                <h5 style="font-size: 1.5em;"><%=story.title.upcase %></h5>
+              <% end %> 
+              <p style="font-size: 1.2em;"><%=story.description%></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</body>

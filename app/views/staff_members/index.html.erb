@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="text-center">Staff Member Dashboard</h1>
+</div>
+
+<%= render 'current_staff_table' unless @staff_members.empty? %>
+<br>
+<div class="container text-center">
+  <%= link_to "Add New Staff Member", new_staff_member_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>
+

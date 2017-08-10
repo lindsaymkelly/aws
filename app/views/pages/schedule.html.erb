@@ -1,0 +1,83 @@
+<div class="container-fluid text-center" >
+  <h1 style="font-size: 3em; color: #0081C6; font-family: 'Gotham-medium';"> CLASS SCHEDULE</h1>
+</div>
+<div class="schedule-filters">
+  <%= form_tag schedule_path, :method => 'get' do %>
+    <div class="dropdown-filters">
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :name, options_for_select(ScheduledClass.options_for_classes, 'All Classes')%>
+      </div>
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :instructor, options_for_select(ScheduledClass.options_for_instructors, 'All Instructors')%>
+      </div>
+      <div class="sched-filter-drpdwn">
+        <%= select_tag :location, options_for_select(['All Locations'])%>
+      </div>
+    </div>
+    <div class="filters-row-2">
+      <div class="sched-link-div">
+        <div class="filter-link-div">
+          <%= link_to "<<PREVIOUS", schedule_path(date: Date.current-1.week), :class => "schedule-links" %>
+        </div>
+        <div class="filter-link-div">
+          <%= link_to "CURRENT WEEK", schedule_path(date: Date.current), :class => "schedule-links" %>
+        </div>
+        <div class="filter-link-div">
+          <%= link_to "NEXT>>", schedule_path(date: Date.current+1.week), :class => "schedule-links" %>
+        </div>
+      </div>
+      <div class="calendar-div">
+        <%= date_field_tag :date%>
+        <%= submit_tag "Filter", :name => nil, :class => "btn btn-small btn-primary filter-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if !@classes.empty? %>
+  <div class="container-fluid schedule-div" >
+    <table class="table schedule-table">
+      <% @classes.each do | day, classes | %>
+        <tr style="color:#06ACA9; font-weight: 500; font-size: 1.4em; text-align: center;">
+          <th><%= day.upcase %></th>
+          <th> CLASS </th>
+          <th> ABOUT </th>
+          <th> INSTRUCTOR </th>
+          <th> SIGN UP </th>
+        </tr>
+        <% classes.sort_by{ |c| c.time }.each do | klass | %>
+          <tr style="font-size: 1.3em; font-family: 'Gotham-thin';">
+            <td><%=klass.time.strftime("%I:%M %p") %></td>
+            <td><%=klass.name %></td>
+            <td style="padding-left: 2.2%;" class="info-icon">
+              <button id="info-button" data-toggle="modal" data-target="#myModal"></button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 style="font-size: 1.7em; color: #F47B20;" class="modal-title" id="exampleModalLabel">About Class</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p><%=klass.about %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </td>
+            <td><%=klass.instructor %></td>
+            <td style="padding-left: 3%;" class="person-icon"><%=link_to image_tag('person'), sign_up_path(klass.id) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <div style="font-size: 1.5em; padding-top: 10%; color: #F47B20;" class="container-fluid text-center">
+    <p> No classes match your search.  Please try again with different filters. </p>
+    <p><%=link_to "Reset Search", schedule_path, :class => 'btn btn-small btn-primary' %></p>
+  </div>
+<% end %>

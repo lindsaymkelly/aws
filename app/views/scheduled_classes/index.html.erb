@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="text-center"> Class Schedule Dashboard </h1>
+</div>
+
+<%= render 'current_classes_table' unless @scheduled_classes.empty? %>
+<br>
+<div class="container text-center">
+  <%= link_to "Add New Class", new_scheduled_class_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>

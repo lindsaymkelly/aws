@@ -1,0 +1,13 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tr>
+      <th> Year </th>
+      <th> Level </th>
+      <th> Description </th>
+      <th class="text-center"> Edit Result </th>
+      <th class="text-center"> Delete Result </th>
+    </tr>
+    <%= render partial: 'result_compact', collection: @results, as: :result %>
+
+  </table>
+</div>

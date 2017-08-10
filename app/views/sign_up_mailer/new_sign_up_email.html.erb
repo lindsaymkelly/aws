@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>A new student has requested to sign up for classes.</h2><br>
+    <h4>Student Information:
+    <p>
+      Parent's Name: <%= @form_info[:parent] %><br>
+      Child's Name: <%= @form_info[:child] %><br>
+      Requested Class: <%= @form_info[:klass][:name] %> with <%= @form_info[:klass][:instructor] %> starting on <%= @form_info[:klass][:start_date] %> <br>
+      Email: <%= @form_info[:email] %> <br>
+      Phone Number: <%= @form_info[:phone] %> <br>
+      Additional Notes: <%= @form_info[:notes] %> <br>
+    </p>
+  </body>
+</html>

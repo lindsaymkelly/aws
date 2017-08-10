@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-sm-offset-2 col-sm-10">
+    <h2> Edit Class: </h2>
+  </div>
+  <%= form_for @scheduled_class, url: scheduled_class_path(@scheduled_class), method: 'put', html: {class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <%=f.label 'Start Date:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.date_field :start_date, :class =>"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'End Date:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.date_field :end_date, :class =>"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Time:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.time_field :time, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Name of Class:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :name, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Class Description:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_area :about, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%=f.label 'Instructor:', :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%=f.text_field :instructor, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%=f.submit "Edit Class", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

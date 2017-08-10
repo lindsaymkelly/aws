@@ -1,14 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>AcademicWorkshop</title>
+    <%= favicon_link_tag 'favicon.ico' %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body id="bootstrap-overrides">
+
+    <% unless params[:controller] == "pages" && params[:action] == "index" %>
+      <div id="normal-nav-container">
+        <% if admin_signed_in? %>
+          <%= render './nav_bars/admin_nav_bar' %>
+        <% else %>
+          <%= render './nav_bars/user_nav_bar' %>
+        <% end %>
+      </div>
+    <% end %> 
+
+    <div id="mobile-nav-container">
+      <%= render './nav_bars/mobile_nav_bar' %>
+    </div>
+
+
+    <% if notice %>
+      <div class="alert alert-info custom-pop-up" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning custom-pop-up" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="notice"><%= alert %></p>
+      </div>
+    <% end %>
+    <% if @errors%>
+      <div class="alert alert-danger custom-pop-up" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <ul class="list-unstyled">
+        <% @errors.each do |e| %>
+          <li><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><%= e %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<body style="background-image: linear-gradient(-11deg, #EF3FA9 12%, #EE46AB 20%, #EA58B0 33%, #E376B9 47%, #DBA0C5 63%, #D0D2D3 80%);height:100%;margin:0;background-repeat:no-repeat;background-attachment:fixed;color: #FFFFFF;">
+  <div style="padding-top: 2%;" class="container">
+    <h1 style="padding-bottom:2%;font-size: 3em; font-family: 'Gotham-medium';" class="text-center"> RESULTS </h1>
+  </div>
+  <% if @results %>
+    <% @results.each do |result| %>
+      <div style="padding-bottom:3%;" class="container result-div">
+        <div class="col-sm-offset-1 col-sm-3 result-image">
+          <%= image_tag result.image.url(:medium)%>
+        </div>
+        <div class="col-sm-8 result-details">
+          <h4><%=result.year.strftime("%Y")%> <%=result.level%></h4>
+          <p><%= h(result.description).gsub(/\n/, '<br/>').html_safe %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</body>

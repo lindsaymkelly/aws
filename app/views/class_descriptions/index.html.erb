@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="text-center"> Class Description Dashboard </h1>
+</div>
+
+<%= render 'current_descriptions_table' unless @class_descriptions.empty? %>
+<br>
+<div class="container text-center">
+  <%= link_to "Add New Description", new_class_description_path, :class => "btn btn-primary btn-lg text-center" %>
+</div>

@@ -1,0 +1,36 @@
+<div id="admin-nav" style="color: #FFFFFF;font-weight: 300;font-size: 16px;" class="text-center">
+  <div id="home-nav-tab">
+    <%= link_to(image_tag('aws_logo_color'), root_path) %>
+  </div>
+  <div id="classes-nav-tab" class="nav-tab classes-dropdown">
+    <p class="classes-drpbtn">CLASSES </p>
+    <div class="dropdown-content">
+      <%= link_to "DESCRIPTIONS", classes_path %>
+      <%= link_to "SCHEDULE", schedule_path %>
+    </div>
+  </div>
+  <div id="results-nav-tab" class="nav-tab">
+    <%= link_to "RESULTS", results_path %>
+  </div>
+  <div id="staff-nav-tab" class="nav-tab">
+    <%= link_to "STAFF", staff_path %>
+  </div>
+  <div id="about-nav-tab" class="nav-tab">
+    <%= link_to "ABOUT", about_path %>
+  </div>
+  <div id="location-nav-tab" class="nav-tab">
+    <%= link_to "LOCATION", location_path %>
+  </div>
+  <div id="admin-nav-tab" class="nav-tab admin-dropdown">
+    <p class="admin-drpbtn">DASHBOARD</p>
+    <div class="admin-dropdown-content">
+      <%= link_to "News Updates", admin_news_path%>
+      <%= link_to "Class Descriptions", admin_classes_path %>
+      <%= link_to "Schedule", admin_schedule_path %>
+      <%= link_to "Results", admin_results_path %>
+      <%= link_to "Staff", admin_staff_path %>
+      <%= link_to "Edit Profile", edit_admin_registration_path(current_admin) %>
+      <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "Are you sure you want to logout?"}%>
+    </div>
+  </div>
+</div>

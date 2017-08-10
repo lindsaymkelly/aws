@@ -1,0 +1,13 @@
+<div class="container">
+  <table class="table table-bordered"> 
+    <tr>
+      <th> Classification </th>
+      <th> Class Title </th>
+      <th> Description </th>
+      <th> Fees </th>
+      <th class="text-center"> Edit Class Description </th>
+      <th class="text-center"> Delete Class Description </th>
+    </tr>
+    <%= render partial: 'class_description_compact', collection: @class_descriptions, as: :class_description %>
+  </table>
+</div>
