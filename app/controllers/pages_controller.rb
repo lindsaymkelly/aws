@@ -21,7 +21,6 @@ class PagesController < ApplicationController
 
     # sort all classes by day of week and group them by that day
     @classes = @classes.sort { |a, b| ScheduledClass.days_of_week[a.day] <=> ScheduledClass.days_of_week[b.day] }.group_by(&:day)
-    # debugger
   end
 
   def results

@@ -12,7 +12,7 @@ class StaffMembersController < ApplicationController
 
   def create
     @staff_member = StaffMember.new(staff_member_params)
-    # debugger
+
     if @staff_member.save
       redirect_to admin_staff_path
     else
@@ -25,7 +25,6 @@ class StaffMembersController < ApplicationController
   end
 
   def update
-    # debugger
     if @staff_member.update(staff_member_params)
       redirect_to admin_staff_path
     else

@@ -11,7 +11,6 @@ class ResultsController < ApplicationController
   end
 
   def create
-    # debugger
     @result = Result.new(result_params)
     if @result.save
       redirect_to admin_results_path
