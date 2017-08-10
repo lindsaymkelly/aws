@@ -42,6 +42,32 @@ class PagesController < ApplicationController
   end
 
   def sign_up
+    @class = ScheduledClass.find(params[:format])
   end
+
+  def send_sign_up
+    @email_content = email_params
+    unless @email_content[:parent].empty? || @email_content[:child].empty? 
+      SignUpMailer.new_sign_up_email(@email_content).deliver_later
+      redirect_to schedule_path, notice: 'Sign up complete! Please contact AWS with any additional questions.'
+    else
+      @errors = ["Please fill out the form to sign up for a class."]
+      @class = ScheduledClass.find(@email_content[:klass][:id])
+      render 'sign_up'
+    end
+  end
+
+  private
+
+    def email_params
+      email_info = {
+        klass: ScheduledClass.find(params["requested_class"]),
+        parent: params["parent_name"],
+        child: params["child_name"],
+        email: params["email"],
+        phone: params["phone"],
+        notes: params["notes"] || ""
+      }
+    end
 
 end

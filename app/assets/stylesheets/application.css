@@ -43,6 +43,11 @@
   src: url('GOTHAM-MEDIUM.TTF') format('truetype');
  }
 
+ @font-face {
+  font-family: 'Gotham-italic';
+  src: url('GOTHAM-LIGHTITALIC.TTF') format('truetype');
+ }
+
  .bold
  strong {
   font-weight: 700;
@@ -275,6 +280,24 @@
 #location-map img {
   max-height: 500px;
   padding-bottom: 10%;
+}
+
+#location-text {
+  font-size: 2em;
+  padding-top: 4%; 
+  color: #FFFFFF;
+}
+
+#location-text a {
+  color: #FFFFFF;
+}
+
+#location-text a:visited {
+  color: #FFFFFF;
+}
+
+#location-text a:hover {
+  color: #0081C6;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -608,3 +631,25 @@
   }
 }
 
+/*Sign Up Page*/
+
+.sign-up-div {
+  width: 60%;
+  padding: 2%;
+  display: block;
+  margin: auto;
+  opacity: 0.59; 
+  background-color: #FFFFFF;
+  color: #F47B20;
+  font-size: 1.5em;
+  border-radius: 10.5px;
+}
+
+.sign-up-field {
+  border: 1px solid #F47B20;
+}
+
+.sign-up-details {
+  text-align: center;
+  font-family: 'Gotham-italic';
+}
